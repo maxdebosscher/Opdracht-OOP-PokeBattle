@@ -39,8 +39,8 @@ abstract class Pokemon {
     /**
      * Perform an attack
      * 
-     * @param  string  $enemy
-     * @param  int  $attack
+     * @param  object  $enemy
+     * @param  object  $attack
      */
     public function attack($enemy, $attack)
     {
