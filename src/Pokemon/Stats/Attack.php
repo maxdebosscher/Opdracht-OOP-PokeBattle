@@ -4,8 +4,8 @@ namespace Src\Pokemon\Stats;
 
 class Attack {
 
-	public $name = '';
-	public $damage = 0;
+	private $name = '';
+	private $damage = 0;
 
 	/**
      * Construct an attack.
@@ -17,6 +17,13 @@ class Attack {
     {
         $this->name = $name;
         $this->damage = $damage;
+    }
+
+    /**
+     * Returns damage
+     */
+    public function getDamage() {
+        return $this->damage;
     }
 
 }

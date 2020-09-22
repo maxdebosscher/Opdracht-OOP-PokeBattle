@@ -4,8 +4,8 @@ namespace Src\Pokemon\Stats;
 
 class Resistance {
 
-	public $energyType = '';
-	public $value = 0;
+	private $energyType = '';
+	private $value = 0;
 
 	/**
      * Construct a resistance.
@@ -17,5 +17,19 @@ class Resistance {
     {
         $this->energyType = $energyType;
         $this->value = $value;
+    }
+
+    /**
+     * Returns energy type
+     */
+    public function getEnergyType() {
+        return $this->energyType;
+    }
+
+    /**
+     * Returns value
+     */
+    public function getValue() {
+        return $this->value;
     }
 }

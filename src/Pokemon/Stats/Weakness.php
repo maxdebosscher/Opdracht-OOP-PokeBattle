@@ -4,8 +4,8 @@ namespace Src\Pokemon\Stats;
 
 class Weakness {
 
-	public $energyType = '';
-	public $multiplier = 0;
+	private $energyType = '';
+	private $multiplier = 0;
 
 	/**
      * Construct a weakness.
@@ -17,5 +17,19 @@ class Weakness {
     {
         $this->energyType = $energyType;
         $this->multiplier = $multiplier;
+    }
+
+    /**
+     * Returns energy type
+     */
+    public function getEnergyType() {
+        return $this->energyType;
+    }
+
+    /**
+     * Returns multiplier
+     */
+    public function getMultiplier() {
+        return $this->multiplier;
     }
 }

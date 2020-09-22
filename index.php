@@ -13,18 +13,16 @@ $charmeleon = new Charmeleon('Charmeleon');
 // Perform actions
 print('<h1>OOP PokeBattle</h1>');
 
-$charmeleon->getHealth();
-$damage = $pikachu->attack($charmeleon, $pikachu->attacks[0]);
-$charmeleon->takeDamage($damage);
-$charmeleon->getHealth();
+$charmeleon->printHealth();
+$charmeleon->takeDamage($pikachu, $pikachu->getAttack(0));
+$charmeleon->printHealth();
 
 print('<br>');
 
-$pikachu->getHealth();
-$damage = $charmeleon->attack($pikachu, $charmeleon->attacks[1]);
-$pikachu->takeDamage($damage);
-$pikachu->getHealth();
+$pikachu->printHealth();
+$pikachu->takeDamage($charmeleon, $charmeleon->getAttack(1));
+$pikachu->printHealth();
 
 print('<br>');
 
-Pokemon::getPopulation();
+Pokemon::printPopulation();
