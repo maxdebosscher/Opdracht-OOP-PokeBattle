@@ -37,12 +37,25 @@ abstract class Pokemon {
     }
 
     /**
-     * Calculate attack damage and reduce it from this pokemon's health
+     * Reduce given damage from this pokemon's health
+     * 
+     * @param  int  $damage
+     */
+    public function takeDamage($damage)
+    {
+        $this->health -= $damage;
+        if($this->health <= 0) {
+            self::$population--;
+        }
+    }
+
+    /**
+     * Return calculated damage
      * 
      * @param  object  $energyType
      * @param  object  $attack
      */
-    public function takeDamage($energyType, $attack)
+    public function getDamage($energyType, $attack)
     {
         $damage = $attack->getDamage();
 
@@ -54,12 +67,15 @@ abstract class Pokemon {
             $damage -= $this->resistance->getValue();
         }
 
-        //print('<pre>' . $this->name . ' took ' . $damage . ' damage from ' . $enemy->name . '.</pre>');
+        return $damage;
+    }
 
-        $this->health -= $damage;
-        if($this->health <= 0) {
-            self::$population--;
-        }
+    /**
+     * Returns a name
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -96,5 +112,3 @@ abstract class Pokemon {
         return self::$population;
     }
 }
-
-// energy type class const w/ values

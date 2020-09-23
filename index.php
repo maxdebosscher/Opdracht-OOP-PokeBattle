@@ -14,13 +14,17 @@ $charmeleon = new Charmeleon('Charmeleon');
 print('<h1>OOP PokeBattle</h1>');
 
 print('<pre>Charmeleon hp: ' . $charmeleon->getHealth() . '</pre>');
-$charmeleon->takeDamage($pikachu->getEnergyType(), $pikachu->getAttack(0));
+$damage = $charmeleon->getDamage($pikachu->getEnergyType(), $pikachu->getAttack(0));
+$charmeleon->takeDamage($damage);
+print('<pre>' . $charmeleon->getName() . ' took ' . $damage . ' damage from ' . $pikachu->getName() . '.</pre>');
 print('<pre>Charmeleon hp: ' . $charmeleon->getHealth() . '</pre>');
 
 print('<br>');
 
 print('<pre>Pikachu hp: ' . $pikachu->getHealth() . '</pre>');
-$pikachu->takeDamage($charmeleon->getEnergyType(), $charmeleon->getAttack(1));
+$damage = $charmeleon->getDamage($charmeleon->getEnergyType(), $charmeleon->getAttack(1));
+$pikachu->takeDamage($damage);
+print('<pre>' . $pikachu->getName() . ' took ' . $damage . ' damage from ' . $charmeleon->getName() . '.</pre>');
 print('<pre>Pikachu hp: ' . $pikachu->getHealth() . '</pre>');
 
 print('<br>');
