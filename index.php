@@ -6,8 +6,6 @@ use Src\Pokemon\Pokemon;
 use Src\Pokemon\Pikachu;
 use Src\Pokemon\Charmeleon;
 
-print(EnergyType::FIRE);
-
 // Construct pokemon
 $pikachu = new Pikachu('Pikachu');
 $charmeleon = new Charmeleon('Charmeleon');
