@@ -6,6 +6,8 @@ use Src\Pokemon\Pokemon;
 use Src\Pokemon\Pikachu;
 use Src\Pokemon\Charmeleon;
 
+print(EnergyType::FIRE);
+
 // Construct pokemon
 $pikachu = new Pikachu('Pikachu');
 $charmeleon = new Charmeleon('Charmeleon');
@@ -13,16 +15,16 @@ $charmeleon = new Charmeleon('Charmeleon');
 // Perform actions
 print('<h1>OOP PokeBattle</h1>');
 
-$charmeleon->printHealth();
-$charmeleon->takeDamage($pikachu, $pikachu->getAttack(0));
-$charmeleon->printHealth();
+print('<pre>Charmeleon hp: ' . $charmeleon->getHealth() . '</pre>');
+$charmeleon->takeDamage($pikachu->getEnergyType(), $pikachu->getAttack(0));
+print('<pre>Charmeleon hp: ' . $charmeleon->getHealth() . '</pre>');
 
 print('<br>');
 
-$pikachu->printHealth();
-$pikachu->takeDamage($charmeleon, $charmeleon->getAttack(1));
-$pikachu->printHealth();
+print('<pre>Pikachu hp: ' . $pikachu->getHealth() . '</pre>');
+$pikachu->takeDamage($charmeleon->getEnergyType(), $charmeleon->getAttack(1));
+print('<pre>Pikachu hp: ' . $pikachu->getHealth() . '</pre>');
 
 print('<br>');
 
-Pokemon::printPopulation();
+print('<pre>Pokemon alive:' . Pokemon::getPopulation() . '</pre>');

@@ -17,7 +17,7 @@ abstract class Pokemon {
      * Construct a pokemon
      *
      * @param  string  $name
-     * @param  string  $energyType
+     * @param  const  $energyType
      * @param  int  $hitpoints
      * @param  array  $attacks
      * @param  object  $weakness
@@ -39,22 +39,22 @@ abstract class Pokemon {
     /**
      * Calculate attack damage and reduce it from this pokemon's health
      * 
-     * @param  object  $enemy
+     * @param  object  $energyType
      * @param  object  $attack
      */
-    public function takeDamage($enemy, $attack)
+    public function takeDamage($energyType, $attack)
     {
         $damage = $attack->getDamage();
 
-        if($this->weakness->getEnergyType() == $enemy->getEnergyType()) {
+        if($this->weakness->getEnergyType() == $energyType) {
             $damage = $damage * $this->weakness->getMultiplier();
         }
 
-        if($this->resistance->getEnergyType() == $enemy->getEnergyType()) {
+        if($this->resistance->getEnergyType() == $energyType) {
             $damage -= $this->resistance->getValue();
         }
 
-        print('<pre>' . $this->name . ' took ' . $damage . ' damage from ' . $enemy->name . '.</pre>');
+        //print('<pre>' . $this->name . ' took ' . $damage . ' damage from ' . $enemy->name . '.</pre>');
 
         $this->health -= $damage;
         if($this->health <= 0) {
@@ -83,16 +83,18 @@ abstract class Pokemon {
     /**
      * Print health
      */
-    public function printHealth()
+    public function getHealth()
     {
-        print('<pre>' . $this->name . ' HP: ' . $this->health . '.</pre>');
+        return $this->health;
     }
 
     /**
      * Print the amount of pokemon that are alive
      */
-    public static function printPopulation()
+    public static function getPopulation()
     {
-        print('<pre>There are ' . self::$population . ' pokemon alive.</pre>');
+        return self::$population;
     }
 }
+
+// energy type class const w/ values

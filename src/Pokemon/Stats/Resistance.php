@@ -10,7 +10,7 @@ class Resistance {
 	/**
      * Construct a resistance.
      *
-     * @param  string  $energyType
+     * @param  const  $energyType
      * @param  int  $value
      */
 	public function __construct($energyType, $value)

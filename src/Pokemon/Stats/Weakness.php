@@ -10,7 +10,7 @@ class Weakness {
 	/**
      * Construct a weakness.
      *
-     * @param  string  $energyType
+     * @param  const  $energyType
      * @param  int  $multiplier
      */
 	public function __construct($energyType, $multiplier)
